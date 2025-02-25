@@ -1,0 +1,70 @@
+import random
+
+ja_nein = ["ja", "nein"]
+richtungen = ["links", "rechts", "vorne", "hinten"]
+
+name = input("Wie lautet dein Name, tapferer Abenteurer? ")
+print(f"Sei gegrüßt {name}. Lass uns starten!")
+print("Du befindest dich am Rande eines dunklen Waldes.")
+print("Kannst du ihn durchqueren? \n")
+
+antwort = ""
+
+while antwort not in ja_nein:
+    antwort = input("Möchtest du den Wald betreten? ")
+    if antwort =="ja":
+        print("Du gehst in den Wald. \n")
+    elif antwort == "nein":
+        print(f"Du bist wohl noch nicht bereit, {name}! Bis Bald!")
+        quit()
+    else:
+        print("Bitte antworte mit ja oder nein. \n")
+
+antwort = ""
+
+while antwort not in richtungen:
+    print(" Links befindet sich ein Wolf.")
+    print(" Rechts geht ein tiefer Wald hinein.")
+    print(" Direkt vor dir befindet sich eine Felswand.")
+    print(" Hinter dir ist der Ausgang des Waldes. \n")
+    antwort = input("Welche Richtung wählst du? ")
+
+    if antwort == "links":
+        while antwort not in ja_nein:
+            antwort = input("Vor dir steht ein Wolf. Möchtest du kämpfen? ")
+            if antwort == "ja":
+                chance = random.uniform(0,1)
+                if chance <= 0.6:
+                    print(f"der Wolf hat dich gefressen. Lebe wohl, {name}!")
+                    quit()
+                else:
+                    print(f"Du besiegst den Wolf und findest das Ziel.")
+                    quit()
+            elif antwort == "nein":
+                print("Du fliehst erfolgreich vor einem Kampf.")
+
+    elif antwort == "rechts":
+        print("Du gehst tiefer in den Wald und verläufst dich. \n")
+        quit()
+
+    elif antwort == "vorne":
+        while antwort not in ja_nein:
+            antwort = input("Möchtest du die Wand erklimmen?")
+            if antwort == "ja":
+                    chance = random.uniform(0,1)
+                    if chance <= 0.4:
+                        print("Du rutscht ab, fällst und stirbst.")
+                        quit()
+                    else:
+                        print ("\n Oben angekommen siehst du den Waldausgang.")
+                        quit()
+            elif antwort == "nein":
+                    print(f"Ok, {name}.")
+                    quit()
+    
+    elif antwort == "hinten":
+        print(f"Du verlässt den Wald. Tschau {name}!")
+        quit()
+    else:
+        print("Bitte wähle eine der vier Richtungen.")
+        antwort = ""
