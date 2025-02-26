@@ -134,7 +134,8 @@ public class CheckBoxDemo extends JPanel
             public void componentResized(ComponentEvent e) {
                 int width = getWidth();
                 int height = getHeight();
-                System.out.println("width = " + width + " heigth = " + height);
+//                System.out.println("width = " + width + " heigth = " + height);
+                updateImageSize(width, height);
             }
         });
 
@@ -172,6 +173,21 @@ public class CheckBoxDemo extends JPanel
         updatePicture();
     }
 
+    private void updateImageSize(int width, int height) {
+        ImageIcon icon = createImageIcon(
+                "images/geek/geek-"
+                + choices.toString()
+                + ".gif");
+        Image image = icon.getImage();
+        
+        // Skaliere das Bild auf 80% der Fensterbreite und -höhe
+        int newWidth = (int) (width * 0.5);
+        int newHeight = (int) (height * 0.5);
+        
+        Image resizedImage = image.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+        pictureLabel.setIcon(new ImageIcon(resizedImage));
+    }
+    
     protected void updatePicture() {
         //Get the icon corresponding to the image.
         ImageIcon icon = createImageIcon(

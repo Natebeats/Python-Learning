@@ -7,12 +7,16 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import day2102.UserManagerJDBC;
+
 class UserManagerTest {
 	InterfaceUserManager userManager ;
 
 	@BeforeEach
 	void initUserManager() {
-		 userManager = new UserManager();
+//		userManager = new UserManager();
+		 userManager = new UserManagerJDBC();
+		 ((UserManagerJDBC)userManager).createDB();
 
 	}
 	@Test
