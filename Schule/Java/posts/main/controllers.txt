@@ -1,0 +1,13 @@
+posts.main.MainController
+
+posts.rest.UserManagerREST
+posts.rest.TweetManagerREST
+posts.rest.FollowerManagerREST
+posts.navigation.NavigationController
+posts.post.PostController
+posts.follower.FollowerController
+
+posts.login.LoginController
+// der letzte Controller in der Liste wird als Startseite angezeigt
+# posts.eventBus.EventBus
+# posts.adminConsole.AdminConsoleController
